@@ -1,4 +1,4 @@
 * This is a note for Deep learning and tracking 
 ** DONE First Step Toward Model-free, Anonymous Object Tracking with Recurrent Neural Networks
-*** [[file:./First Step Toward Model-free, Anonymous Object Tracking with Recurrent Neural Networks][First Step]
+*** [[file:./README.org][First Step]]
 ** TODO Transferring Rich Feature Hierarchies for Robust Visual Tracking
