@@ -2,3 +2,4 @@
 ** DONE First Step Toward Model-free, Anonymous Object Tracking with Recurrent Neural Networks
 *** [[file:./First Step Toward Model-free, Anonymous Object Tracking with Recurrent Neural Networks/First Step Toward Model-free, Anonymous Object Tracking with Recurrent Neural Networks.pdf][First Step Toward Model-free, Anonymous Object Tracking with Recurrent Neural Networks]]
 ** TODO Transferring Rich Feature Hierarchies for Robust Visual Tracking
+*** [[file:./Transferring Rich Feature Hierarchies for Robust Visual Tracking/Transferring Rich Feature Hierarchies for Robust Visual Tracking.pdf][Transferring Rich Feature Hierarchies for Robust Visual Tracking]]
