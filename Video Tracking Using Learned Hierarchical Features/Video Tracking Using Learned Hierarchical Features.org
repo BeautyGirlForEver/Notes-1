@@ -1,0 +1,79 @@
+#+TITLE:     Video Tracking Using Learned Hierarchical Features
+#+AUTHOR:    mingzailao
+#+EMAIL:     mingzailao@126.com
+#+DATE:      2016-9-11
+#+KEYWORDS:  Deep Learning, Tracking, CNN
+#+LANGUAGE:  en
+
+
+#+STARTUP: beamer
+#+STARTUP: oddeven
+
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [bigger]
+
+#+BEAMER_THEME: Darmstadt
+
+#+OPTIONS:   H:2 toc:t
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+COLUMNS: %20ITEM %13BEAMER_env(Env) %6BEAMER_envargs(Args) %4BEAMER_col(Col) %7BEAMER_extra(Extra)
+
+* Tracking System Overview
+** TODO ASLSA(adaptive structural local sparse appearance model) cite:jia2012visual
+** Tracking System Overview
+*** Briefly Introduction of  the Tracking System
+Suppose we have an observation set of target $x_{1:t}=\{x_1,\cdots,x_t\}$ , a corresponding
+feature representation set $z_{1:t}=\{z_1,\cdots,z_t\}$, the target state $y_t$ can be 
+calculated by:
+
+\begin{equation}
+\label{eq:1}
+y_t=arg\max_{y_t^i} p(y_t^i|z_{1:t})
+\end{equation}
+
+where $y_t^i$ denotes the $i^{th}$ sample in the $t^{th}$ frame.
+
+** Tracking System Overview
+*** Briefly Introduction of  the Tracking System
+The posterior probability $p(y_t|z_{1:t})$ can be inferred by the Bayes’ theorem as follows:
+\begin{equation}
+\label{eq:3}
+p(y_t|z_{1:t})\propto p(z_t|y_t)\int p(y_t|y_{t-1})p(y_{t-1}|z_{1:t-1})
+\end{equation}
+where $z_{1:t}$ denotes the feature representation, $p(y_t|y_{t-1})$ denotes the motion model
+and $p(z_t|y_t)$ denotes the appearance model. 
+** Tracking System Overview
+*** Briefly Introduction of  the Tracking System
+The representations $z_{1:t}$ can simply use raw pixel values. cite:jia2012visual
+In there , we use the learned hierarchical features from raw pixels for tracking.
+* Learning Features for Video Tracking
+** Learning Features for Video Tracking
+*** Offline Learning
+- Adopt the approach proposed in cite:zou2012deep  to learn features From a auxiliary dataset.
+- We further use a domain adaptation method to adapt pre-learned features according to specific target objects.
+** Learning Features for Video Tracking
+*** Algorithm
+- Input: the previous tracking state $y_{t-1}$, the existing feature learning parameter $\hat{\Theta}$ and the exemplar library.
+- Apply the affine transformation on $y_{t-1}$ to obtain a number of tracking states $y_t^i$ and the corresponding candidate image patches $x_t^i$.
+- Extract feature representations $z_t^i$ from the candidate image patches $x_t^i$ under the existing feature learning parameter $\hat{\Theta}$.
+** Learning Features for video Tracking
+*** Algorithm
+- Calculate the posterior probability $p(y_{t}|z_{1:t})$ according to Equation (ref:eq:3).
+- Predict the tracking state by $y_{t} = arg\max_{y_{t}^{i}}p(y_t^i|z_{1:t})$.
+- Update the feature learning parameter and the exemplar library every $M$ frames.
+- Output: the predicted tracking state $y_t$, the up-to-date feature learning parameter $\Theta$ and the up-to-date exemplar library.
+** Pre-Learning Generic Features from Auxiliary Videos
+*** Deep Learning model
+Network Structure cite:zou2012deep
+
+
+
+
+
+
+* Reference
+** Reference
+
+\bibliography{../../BibTex/mingzailao}{}
+\bibliographystyle{plain}
