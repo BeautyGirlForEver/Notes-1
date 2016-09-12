@@ -111,10 +111,30 @@ $$z_i^{adp}=\sqrt{H(Wx_i^{obj})^2}$$
 *** Adding Regularization Term
 \begin{eqnarray}
 \label{eq:11}
-W_{adp} & = & arg\min_W\lambda\sum_{i=1}^{N-1}||z_i^{adp}-z_{i+1}^{adp}||_1 \\
+W_{adp} & = & arg\min_W\lambda\sum_{i=1}^{N-1}||z_i^{adp}-z_{i+1}^{adp}||_1 \nonumber\\
  &+ &\gamma\sum_{i=1}^N||Wx_i^{obj}-W_{old}x_i^{obj}||_2^{2} \\
-&+&\sum_{i=1}^N||x_i^{obj}-W^TWx_i^{obj}||_2^2
+&+&\sum_{i=1}^N||x_i^{obj}-W^TWx_i^{obj}||_2^2\nonumber
 \end{eqnarray}
+- $W_{old}$ : the pre-learned feature transformation matrix.
+** Domain Adaption Module
+*** Analysis
+The second term refers to the adaptation module and aims to make the adapted feature close to the old one for the sake of preserving the pre-learned features’ robustness to complicated motion transformations.
+** Optimization and Online Learning
+*** Notes
+Denotes the objective function of the adaptation module as $f(X;\Theta,\hat{\Theta})$
+- $X$ : a number of training images of object regions for the adaptation.
+- $\Theta=\{w_{ij}|i,j=1,\cdots,N\}$ :the parameter set representing all entries in the transformation matrix $W$.
+- $\hat{\Theta}$ : $W_{old}$.
+*** Optimizier
+L-BFGS
+** Optimization and Online Learning
+*** TODO BFGS
+The Quasi-Newton methods, such as BFGS algorithm,
+need to update the approximate Hessian matrix $B_k$ at the $i$-th
+iteration to calculate the search direction $p_k = −B_k^{-1}\nabla f_k$,
+where $\nabla f_k$ is the derivative of the objective function $f$ w.r.t. $\Theta_k$ at the $k$-th iteration.
+*** TODO L-BGFS
+
 * Reference
 ** Reference
 
