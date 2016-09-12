@@ -2,7 +2,7 @@
 #+AUTHOR:    mingzailao
 #+EMAIL:     mingzailao@126.com
 #+DATE:      2016-9-11
-#+KEYWORDS:  Deep Learning, Tracking, CNN
+#+KEYWORDS:  Deep Learning, Tracking, Auto-Encoder, Stacked-Auto-Encoder
 #+LANGUAGE:  en
 
 
@@ -38,7 +38,7 @@ where $y_t^i$ denotes the $i^{th}$ sample in the $t^{th}$ frame.
 *** Briefly Introduction of  the Tracking System
 The posterior probability $p(y_t|z_{1:t})$ can be inferred by the Bayes’ theorem as follows:
 \begin{equation}
-\label{eq:3}
+\label{eq:2}
 p(y_t|z_{1:t})\propto p(z_t|y_t)\int p(y_t|y_{t-1})p(y_{t-1}|z_{1:t-1})
 \end{equation}
 where $z_{1:t}$ denotes the feature representation, $p(y_t|y_{t-1})$ denotes the motion model
@@ -65,13 +65,56 @@ In there , we use the learned hierarchical features from raw pixels for tracking
 - Output: the predicted tracking state $y_t$, the up-to-date feature learning parameter $\Theta$ and the up-to-date exemplar library.
 ** Pre-Learning Generic Features from Auxiliary Videos
 *** Deep Learning model
-Network Structure cite:zou2012deep
+#+CAPTION: The Structure of the Network
+#+NAME: Structure
+#+ATTR_LATEX: :width 9cm :float t
+#+ATTR_HTML: :width 500px
+[[./images/Nets.png]]
+** Pre-Learning Generic Features from Auxiliary Videos
+*** Input 
+Offline training patch $x_i$ from the $i$-th frame,
+*** Corresponding Learned Feature
+ $$z_i=\sqrt{H(Wx_i)^2}$$ 
+- $H$ : pooling matrix.
+- $(Wx_i)^2$ : elementwise square on the output of the linear network layer.
+** Pre-training Generic Features from Auxiliary videos
+*** How to compute the parameter $W$:
+The feature transformation matrix $W$ is learned by solving the following unconstrained 
+minimization problem:
+\begin{equation}
+\label{eq:3}
+\min_W\lambda\sum_{i=1}^{N-1}||z_i-z_{i-1}||_1+\sum_{i=1}^N||x_i-W^TWx_i||_2^2
+\end{equation}
+- $z_{i+1}$ denotes the learned feature from the $(i+1)$-th frame.
+- $N$ is the total length of all video sequences in the auxiliary data.
+** Pre-training Generic Features from Auxiliary videos
+*** Apply the $W^{L_1}$ to the $32\times 32$ patches
+The input of the first layer is the raw pixel values of smaller patches $(16 \times 16)$.
+- We can learn the feature transformation matrix $W^{L_1}$ for the first layer by Equation (ref:eq:3).
+- Then, we apply $W^{L_1}$ to convolve with the larger patches ($32\times 32$).
 
+The larger patch is divided into a number of sub-patches ($16\times 16$) 
+We use $W^{L_1}$ to conduct feature mapping for each sub-patch and concatenate features of all the sub-patches to represent the larger patch.
 
+- Next, PCA whitening is applied to the concatenated feature vector.
 
-
-
-
+** Pre-Training Generic Features from Auxiliary videos
+*** Finally
+- Using the whitened feature vector of the larger patch as the input to the second layer and learn the feature transformation matrix $W^{L_2}$ for the second layer.
+- We concatenate features from two layers as our generic features.
+** Domain Adaption Module
+*** The Adapted Feature
+$$z_i^{adp}=\sqrt{H(Wx_i^{obj})^2}$$
+- $x_i^{obj}$ : the object image patch in the $i$-th frame of the training data for adaptation.
+- $W$ : feature transformation matrix to be learned.
+** Domain Adaption Module
+*** Adding Regularization Term
+\begin{eqnarray}
+\label{eq:11}
+W_{adp} & = & arg\min_W\lambda\sum_{i=1}^{N-1}||z_i^{adp}-z_{i+1}^{adp}||_1 \\
+ &+ &\gamma\sum_{i=1}^N||Wx_i^{obj}-W_{old}x_i^{obj}||_2^{2} \\
+&+&\sum_{i=1}^N||x_i^{obj}-W^TWx_i^{obj}||_2^2
+\end{eqnarray}
 * Reference
 ** Reference
 
