@@ -300,3 +300,10 @@ Where $m^{*}$ and $\tilde{M}$ are binary masks whose pixels inside a bounding bo
 A higher IOU implies better tracking quality, and it is bounded between 0 and 1.
 For each video sequence, we compute the average IOU across all the frames.
 
+* Code Analysis
+** Data Generation
+*** BouncingMNIST
+all the code are in BouncingMNIST class.
+- GetBatch(self,verbose=False, count=1): this function can get a random batch of the data with shape : (batch_size,num_channels,img_col,img_row)
+
+
