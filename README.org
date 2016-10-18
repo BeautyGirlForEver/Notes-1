@@ -1,9 +1,13 @@
-* DONE [[./First Step Toward Model-free, Anonymous Object Tracking with Recurrent Neural Networks/First Step Toward Model-free, Anonymous Object Tracking with Recurrent Neural Networks.pdf][First Step Toward Model-free, Anonymous Object Tracking with Recurrent Neural Networks]]
-** TODO Marks
-** TODO Code
-* DONE [[./Transferring Rich Feature Hierarchies for Robust Visual Tracking/Transferring Rich Feature Hierarchies for Robust Visual Tracking.pdf][Transferring Rich Feature Hierarchies for Robust Visual Tracking]]
-** TODO Marks
-** TODO Code
-* TODO [[./Video Tracking Using Learned Hierarchical Features/Video Tracking Using Learned Hierarchical Features.pdf][Video Tracking Using Learned Hierarchical Features]]
-** TODO Marks
-** TODO Code
+
+* DONE [[./First Step Toward Model-free, Anonymous Object Tracking with Recurrent Neural Networks/First Step Toward Model-free, Anonymous Object Tracking with Recurrent Neural Networks.org][First Step Toward Model-free, Anonymous Object Tracking with Recurrent Neural Networks]]
+** DONE Marks
+** DONE Code
+* DONE [[./Transferring Rich Feature Hierarchies for Robust Visual Tracking/Transferring Rich Feature Hierarchies for Robust Visual Tracking.org][Transferring Rich Feature Hierarchies for Robust Visual Tracking]]
+** DONE Marks
+** DONE Code
+* DONE [[./Video Tracking Using Learned Hierarchical Features/Video Tracking Using Learned Hierarchical Features.org][Video Tracking Using Learned Hierarchical Features]]
+** DONE Marks
+** DONE Code
+* DONE [[./DRAW: A Recurrent Neural Network For Image Generation/DRAW: A Recurrent Neural Network For Image Generation.org][DRAW: A Recurrent Neural Network For Image Generation]]
+** DONE Marks
+** DONE Code
