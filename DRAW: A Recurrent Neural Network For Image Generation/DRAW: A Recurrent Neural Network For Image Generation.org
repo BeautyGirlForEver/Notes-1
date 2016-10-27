@@ -168,7 +168,7 @@ read(x,\hat{x}_t,h_{t-1}^{dec}) = \gamma[F_YxF_X^T,F_Y\hat{x}_tF_x^T]
 \end{equation*}
 For the write operation, a distinct set of attention parameters $\hat{\gamma}$, $\hat{F}_X$, $\hat{F}_Y$ are extracted from $h_t^{dec}$, the order of transposition is reversed
 and the intensity is inverted:
-\begin{eqnarray*}
+                               \begin{eqnarray*}
 w_t & =& W(h_t^{dec})\\
 write(h_t^{dec})&=&\frac{1}{\hat{\gamma}}\hat{F}_Y^Tw_t\hat{F}_X
 \end{eqnarray*}
