@@ -60,15 +60,22 @@
 ** DONE Code
    CLOSED: [2016-10-27 Thu 22:07]
 
+
 * TODO [[file:Tutorial:%20Deep%20Reinforcement%20Learning/Tutorial:%20Deep%20Reinforcement%20Learning.org][Tutorial/ Deep Reinforcement Learning]]
 ** TODO Marks
 ** TODO Code
+
 
 * TODO [[file:Auto-Encoding%20Variational%20Bayes/Auto-Encoding%20Variational%20Bayes.org][Auto-Encoding Variational Bayes]]
 ** TODO Marks
 ** TODO Code
 
 
+
+
+* TODO [[file:Layer%20Normalization/Layer%20Normalization.org][Layer Normalization]]
+** TODO Marks
+** TODO Code
 
 
 * Summary(<2016-10-27 Thu>)
