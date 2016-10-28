@@ -47,7 +47,7 @@
 ** DONE Code
    CLOSED: [2016-10-27 Thu 21:59]
 
-* TODO [[file:Deep%20Tracking:%20Seeing%20Beyond%20Seeing%20Using%20Recurrent%20Neural%20Networks][Deep Tracking : Seeing Beyond Seeing Using Recurrent Neural Networks]]
+* TODO [[file:Deep%20Tracking:%20Seeing%20Beyond%20Seeing%20Using%20Recurrent%20Neural%20Networks/Deep%20Tracking%20Seeing%20Beyond%20Seeing%20Using%20Recurrent%20Neural.org][Deep Tracking Seeing Beyond Seeing Using Recurrent Neural]]
 ** TODO Marks
 ** TODO Code
 
