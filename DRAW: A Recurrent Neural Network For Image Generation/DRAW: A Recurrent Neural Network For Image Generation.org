@@ -1,19 +1,31 @@
-#+TITLE:     DRAW: A Recurrent Neural Network For Image Generation
-#+AUTHOR:    mingzailao
-#+EMAIL:     mingzailao@126.com
-#+DATE:      2016-9-11
-#+KEYWORDS:  RNN, CV, 
-#+LANGUAGE:  en
 
+#+TITLE:     DRAW : A Reccurrent Neural Network for Image Generation
+#+AUTHOR:    mingzailao
+#+EMAIL:     mingzaialo@126.com
+#+DATE:      <2016-10-31 Mon>
+#+KEYWORDS:  Deep Learning
+#+LANGUAGE:  en
 
 #+STARTUP: beamer
 #+STARTUP: oddeven
-
 #+LaTeX_CLASS: beamer
 #+LaTeX_CLASS_OPTIONS: [bigger]
+#+LATEX_HEADER: \usepackage{xeCJK}
+#+LATEX_HEADER: \setCJKmainfont[BoldFont=STZhongsong, ItalicFont=STKaiti]{STSong}
+#+LATEX_HEADER: \setCJKsansfont[BoldFont=STHeiti]{STXihei}
+#+LATEX_HEADER: \setCJKmonofont{STFangsong}
 
-#+BEAMER_THEME: Darmstadt
+#+BEGIN_LATEX
+\AtBeginSection[]
+{
+\begin{frame}<beamer>
+\frametitle{DRAW : A Reccurrent Neural Network for Image Generation}
+\tableofcontents[currentsection]
+\end{frame}
+}
+#+END_LATEX
 
+#+BEAMER_THEME: Madrid
 #+OPTIONS:   H:2 toc:t
 #+SELECT_TAGS: export
 #+EXCLUDE_TAGS: noexport
@@ -176,4 +188,8 @@ write(h_t^{dec})&=&\frac{1}{\hat{\gamma}}\hat{F}_Y^Tw_t\hat{F}_X
 * Next article
 ** Next article
 *** About variational auto-encoder
-Auto-Encodeing Variational Bayes
+    Auto-Encodeing Variational Bayes cite:2013arXiv1312.6114K
+
+\bibliographystyle{unsrtnat}
+
+bibliography:~/PAPERS/BibTex/mingzailao.bib
